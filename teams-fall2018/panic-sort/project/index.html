@@ -9,9 +9,10 @@
     <body>
         
         <form action="upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="filetoupload"><br>
-            
-            <input type="submit">
+            <input type="file" name="filetoupload"><br/>
+            <input type="radio" name="parseType" value="text" checked>Searchable PDF<br>
+            <input type="radio" name="parseType" value="ocr"> Scanned PDF<br>
+            <input type="submit"><br/>
         </form>
 
 
