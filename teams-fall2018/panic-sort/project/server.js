@@ -66,8 +66,8 @@ app.post('/upload', function (req, res) {
     console.log(fields);
     console.log(fields.parseType);
     let arr = ocr.extract(newpath, fields.parseType);// find a way to get checkbox info, here
-    console.log(arr);
-
+    console.log('note: '+ arr);
+    
   }
 
 
