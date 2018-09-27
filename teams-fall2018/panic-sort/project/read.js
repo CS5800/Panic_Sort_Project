@@ -25,23 +25,36 @@ let p = chrono.parse('');
 
 const fs = require('fs');
 
-const filePath = './1537998986.43syllabus.pdf.txt';
-let data = fs.readFileSync(filePath).toString();
+//const filePath = './1537998986.43syllabus.pdf.txt';
+let data;
+let arrayOfData;
+module.exports = {
+    prune: function pruneFile(filePath) {
+         
+        data = fs.readFileSync(filePath).toString();
+        arrayOfData = data.split('\n');
+        flagLines();
+        tagLines();
+        filterGoodLine();
+        printGoodLines();
+        parseGoodLines();
 
-const arrayOfData = data.split('\n');
+        return { 'line': goodLine, 'tags': tags };
+
+    }
+}
+
+
+
 let flags = [];
 let tags = [];
 let parsedGoods = [];
 let goodLine = [];
 
 
-p= chrono.parse('Project 0: 5%');
+// p= chrono.parse('Project 0: 5%');
 
-flagLines();
-tagLines();
-filterGoodLine();
-printGoodLines();
-parseGoodLines();
+
 
 function parseGoodLines() {
     for (let i = 0; i < goodLine.length; i++) {
@@ -145,7 +158,7 @@ function tagLines() {
 function filterGoodLine(line) {
     for (var i = 0; i < flags.length; i++) {
         p = chrono.parse(arrayOfData[flags[i]]);
-        if (p.length > 0 && !(p[0].start.knownValues.month === undefined) && !(p[0].start.knownValues.day === undefined ) ){
+        if (p.length > 0 && !(p[0].start.knownValues.month === undefined) && !(p[0].start.knownValues.day === undefined)) {
             goodLine.push(flags[i]);
         }
     }

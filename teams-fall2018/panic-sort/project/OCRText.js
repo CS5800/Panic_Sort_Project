@@ -1,11 +1,11 @@
-var inspect = require('eyes').inspector({maxLength:20000});
-var pdf_extract = require('pdf-extract');
-var fs = require('fs');
-
+const inspect = require('eyes').inspector({maxLength:20000});
+const pdf_extract = require('pdf-extract');
+const fs = require('fs');
+const pruner = require('./read');
 
 module.exports = {extract: function extractFile(filePath, mode){
 
-
+console.log(filePath);
 
 console.log('OCR'+ mode);
 console.log('\n');
@@ -14,7 +14,7 @@ console.log('\n');
 console.log('\n');
 console.log('\n');
 
-var absolute_path_to_pdf = filePath;
+const absolute_path_to_pdf = filePath;
 
 
 var options = {
@@ -27,13 +27,10 @@ var processor = pdf_extract(absolute_path_to_pdf, options, function(err) {
 });
 processor.on('complete', function(data) {
   inspect(data.text_pages, 'extracted text pages');
-  fs.writeFile(filePath + '.txt' , data.text_pages  , function(err) {
-    if(err) {
-        return console.log(err);
-    }
 
-    console.log("The file was saved!");
-}); 
+  fs.writeFileSync(filePath + '.txt' , data.text_pages ); 
+  pruned = pruner.prune(filePath + '.txt');
+  return pruned;
 });
 processor.on('error', function(err) {
   inspect(err, 'error while extracting pages');
