@@ -6,3 +6,4 @@ npm install pdf-extract
 npm install express
 npm i -S formidable
 npm i eyes
+npm i --save chrono-node
