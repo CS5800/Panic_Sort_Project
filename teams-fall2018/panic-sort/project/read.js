@@ -33,7 +33,7 @@ let data;
 let arrayOfData;
 module.exports = {
     prune: function pruneFile(filePath) {
-        let flags = [];
+         flags = [];
  tags = [];
  goodTags = [];
  parsedGoods = [];
