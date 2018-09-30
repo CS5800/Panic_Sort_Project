@@ -13,7 +13,13 @@ const bag = [
     'essay',
     'extra credit'
 ];
-
+let flags = [];
+let tags = [];
+let goodTags = [];
+let parsedGoods = [];
+let goodLine = [];
+let goodSentences = [];
+let goodDates = [];
 
 
 const chrono = require('chrono-node');
@@ -27,6 +33,13 @@ let data;
 let arrayOfData;
 module.exports = {
     prune: function pruneFile(filePath) {
+        let flags = [];
+ tags = [];
+ goodTags = [];
+ parsedGoods = [];
+ goodLine = [];
+ goodSentences = [];
+ goodDates = [];
          
         data = fs.readFileSync(filePath).toString();
         arrayOfData = data.split('\n');
@@ -43,13 +56,7 @@ module.exports = {
 
 
 
-let flags = [];
-let tags = [];
-let goodTags = [];
-let parsedGoods = [];
-let goodLine = [];
-let goodSentences = [];
-let goodDates = [];
+
 
 // p= chrono.parse('Project 0: 5%');
 

@@ -4,7 +4,7 @@ const formidable = require('formidable');
 //var bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-const ocr = require('./OCRText');
+//const ocr = require('./OCRText');
 
 //var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
@@ -20,19 +20,21 @@ app.get('/', function (req, res) {
 app.post('/upload', function (req, res) {
   const currentPath = process.cwd();
   let pruned;
+  let oldpath;
+  let newpath;
+  let field;
+  a(() => b(newpath, field));
 
-  a();
 
-
-  function a() {
+  function a(callback) {
 
     let timeStamp = new Date() / 1000;
-    let oldpath;
-    let newpath;
+
 
     let form = new formidable.IncomingForm();
 
     form.parse(req, function (err, fields, files) {
+      field = fields;
       oldpath = files.filetoupload.path;
       newpath = currentPath + '/uploads/' + timeStamp + files.filetoupload.name;
       //
@@ -40,13 +42,11 @@ app.post('/upload', function (req, res) {
       // console.log(files.filetoupload.name);
       // console.log(fields);
       //
-
-
       fs.renameSync(oldpath, newpath, function (err) {
         if (err) throw err;
-        res.write('File uploaded and moved!');
-
       });
+
+
       // console.log(newpath);
       // console.log(fields);
       // console.log('');
@@ -54,24 +54,22 @@ app.post('/upload', function (req, res) {
       // console.log('');
       // console.log('');
 
-      console.log(b(newpath, fields));
+      callback();
     });
 
   }
 
   function b(newpath, fields) {
 
-
     // console.log(newpath);
     // console.log(fields);
     // console.log(fields.parseType);
 
-
-
-
+   let ocr = require('./OCRText');
+    
     ocr.extract(newpath, fields.parseType)
-    .then(pruned => res.send(pruned))
-    .catch(err => res.send(err));
+      .then(pruned => res.send(pruned))
+      .catch(err => res.send(err));
 
     // console.log('b{');
     // console.log( pruned);
