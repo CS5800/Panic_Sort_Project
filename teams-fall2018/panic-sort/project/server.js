@@ -4,7 +4,6 @@ const formidable = require('formidable');
 //var bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-
 const ocr = require('./OCRText');
 
 //var urlencodedParser = bodyParser.urlencoded({ extended: true });
@@ -20,16 +19,17 @@ app.get('/', function (req, res) {
 
 app.post('/upload', function (req, res) {
   const currentPath = process.cwd();
-
+  let pruned;
 
   a();
 
 
   function a() {
+
     let timeStamp = new Date() / 1000;
     let oldpath;
     let newpath;
-    let f;
+
     let form = new formidable.IncomingForm();
 
     form.parse(req, function (err, fields, files) {
@@ -37,8 +37,8 @@ app.post('/upload', function (req, res) {
       newpath = currentPath + '/uploads/' + timeStamp + files.filetoupload.name;
       //
       //  console.log(currentPath);
-      console.log(files.filetoupload.name);
-      console.log(fields);
+      // console.log(files.filetoupload.name);
+      // console.log(fields);
       //
 
 
@@ -47,32 +47,49 @@ app.post('/upload', function (req, res) {
         res.write('File uploaded and moved!');
 
       });
-      console.log(newpath);
-      console.log(fields);
-      console.log('');
-      console.log('');
-      console.log('');
-      console.log('');
-      b(newpath, fields);
-      res.end();
+      // console.log(newpath);
+      // console.log(fields);
+      // console.log('');
+      // console.log('');
+      // console.log('');
+      // console.log('');
 
-
+      console.log(b(newpath, fields));
     });
 
   }
 
   function b(newpath, fields) {
-    console.log(newpath);
-    console.log(fields);
-    console.log(fields.parseType);
-    let arr = ocr.extract(newpath, fields.parseType);// find a way to get checkbox info, here
-    console.log('note: '+ arr);
-    
+
+
+    // console.log(newpath);
+    // console.log(fields);
+    // console.log(fields.parseType);
+
+
+
+
+    ocr.extract(newpath, fields.parseType)
+    .then(pruned => res.send(pruned))
+    .catch(err => res.send(err));
+
+    // console.log('b{');
+    // console.log( pruned);
+    // console.log('}');
   }
-
-
-
 });
 
 
 app.listen(3000);
+
+
+
+
+
+
+
+
+
+
+
+

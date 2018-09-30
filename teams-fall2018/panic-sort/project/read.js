@@ -1,6 +1,3 @@
-
-
-
 const bag = [
     'homework',
     'hw',
@@ -33,14 +30,14 @@ module.exports = {
          
         data = fs.readFileSync(filePath).toString();
         arrayOfData = data.split('\n');
+       // console.log(arrayOfData[12]);
         flagLines();
         tagLines();
-        filterGoodLine();
-        printGoodLines();
+        filterGoodLines();
         parseGoodLines();
-
-        return { 'line': goodLine, 'tags': tags };
-
+        //printGoodLines();
+        console.log({ 'line': goodSentences, 'tags': goodTags, 'dates':goodDates });
+        return send();
     }
 }
 
@@ -48,19 +45,25 @@ module.exports = {
 
 let flags = [];
 let tags = [];
+let goodTags = [];
 let parsedGoods = [];
 let goodLine = [];
-
+let goodSentences = [];
+let goodDates = [];
 
 // p= chrono.parse('Project 0: 5%');
 
 
 
-function parseGoodLines() {
+function parseGoodLines(calback) {
+  
     for (let i = 0; i < goodLine.length; i++) {
         p = chrono.parse(arrayOfData[goodLine[i]]);
         parsedGoods.push(p);
+        goodDates.push([p[0].start.knownValues.month,p[0].start.knownValues.day]);
+        goodSentences.push(arrayOfData[goodLine[i]]);
     }
+   
 }
 function printParsedGoodLines() {
     for (let i = 0; i < goodLine.length; i++) {
@@ -154,24 +157,42 @@ function tagLines() {
     for (let i = 0; i < flags.length; i++) {
         tags.push(tagLine(arrayOfData[flags[i]]));
     }
+  
 }
-function filterGoodLine(line) {
+function filterGoodLines() {
+    console.log('filterGoodLines ' + flags.length);
+
     for (var i = 0; i < flags.length; i++) {
         p = chrono.parse(arrayOfData[flags[i]]);
+       // console.log(arrayOfData[flags[i]]);
         if (p.length > 0 && !(p[0].start.knownValues.month === undefined) && !(p[0].start.knownValues.day === undefined)) {
+         //   console.log('filter: ' + flags[i]+ ' '+tags[i]);
             goodLine.push(flags[i]);
+            goodTags.push(tags[i]);
         }
     }
+
 }
 function printGoodLines() {
+    console.log('printGoodLines ' + goodLine.length);
     for (let i = 0; i < goodLine.length; i++) {
         console.log(arrayOfData[goodLine[i]]);
     }
+    
+    console.log(goodSentences);
+
+    console.log(goodTags);
+
+    console.log(goodDates);
+
+}
+function send(){
+    return { 'line': goodSentences, 'tags': goodTags, 'dates':goodDates }; 
 }
 // console.log(p[0].start.knownValues.month);
 // console.log(p[0].start.knownValues.day);
 // console.log(tags);
 
-// p = chrono.parse('This schedule lists important dates (exams, project release and due dates, etc.). The white-background items show the');
+// p = chrono.parse('This schedule lists important dates (exams, project release and due dates, etc.). The white-background items show the');
 // console.log(p);
 // console.log(p.length);// if length is zero, no date is found
