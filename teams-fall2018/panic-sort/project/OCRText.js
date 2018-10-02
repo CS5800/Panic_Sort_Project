@@ -1,4 +1,4 @@
-const inspect = require('eyes').inspector({ maxLength: 20000 });
+//const inspect = require('eyes').inspector({ maxLength: 20000 });
 const pdf_extract = require('pdf-extract');
 const fs = require('fs');
 const pruner = require('./read');
@@ -33,7 +33,7 @@ function extractFile(filePath, mode) {
     });
 
     processor.on('complete', function (data) {
-      inspect(data.text_pages, 'extracted text pages');
+     // inspect(data.text_pages, 'extracted text pages');
 
       fs.writeFileSync(filePath + '.txt', data.text_pages);
 
