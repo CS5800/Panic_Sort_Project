@@ -11,6 +11,7 @@ const bag = [
     'final',
     'paper',
     'essay',
+    'report',
     'extra credit'
 ];
 let flags = [];
