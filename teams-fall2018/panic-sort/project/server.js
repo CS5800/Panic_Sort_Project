@@ -65,10 +65,15 @@ app.post('/upload', function (req, res) {
     // console.log(fields);
     // console.log(fields.parseType);
 
-   let ocr = require('./OCRText');
-    
+    let ocr = require('./OCRText');
+    let ics = require('./ICS');
+
+
     ocr.extract(newpath, fields.parseType)
-      .then(pruned => res.send(pruned))
+      .then(function (pruned) {
+        ics.createCal(newpath, pruned);
+        res.sendFile(newpath+'.ics');
+      })
       .catch(err => res.send(err));
 
     // console.log('b{');
@@ -79,6 +84,13 @@ app.post('/upload', function (req, res) {
 
 
 app.listen(3000);
+
+
+
+
+
+
+
 
 
 
