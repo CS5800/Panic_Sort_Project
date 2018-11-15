@@ -195,7 +195,7 @@ function printGoodLines() {
 
 }
 function send(){
-    return { 'line': goodSentences, 'tags': goodTags, 'dates':goodDates }; 
+    return { 'lines': goodSentences, 'tags': goodTags, 'dates':goodDates }; 
 }
 // console.log(p[0].start.knownValues.month);
 // console.log(p[0].start.knownValues.day);
