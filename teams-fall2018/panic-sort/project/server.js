@@ -72,7 +72,7 @@ app.post('/upload', function (req, res) {
     ocr.extract(newpath, fields.parseType)
       .then(function (pruned) {
         ics.createCal(newpath, pruned);
-        res.sendFile(newpath+'.ics');
+        res.download(newpath+'.ics');
       })
       .catch(err => res.send(err));
 
