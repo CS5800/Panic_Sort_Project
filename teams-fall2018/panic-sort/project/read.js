@@ -50,7 +50,7 @@ module.exports = {
         filterGoodLines();
         parseGoodLines();
         //printGoodLines();
-        console.log({ 'line': goodSentences, 'tags': goodTags, 'dates':goodDates });
+        console.log({ 'lines': goodSentences, 'tags': goodTags, 'dates':goodDates });
         return send();
     }
 }
