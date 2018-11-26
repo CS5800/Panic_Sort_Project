@@ -50,7 +50,7 @@ module.exports = {
         filterGoodLines();
         parseGoodLines();
         //printGoodLines();
-        console.log({ 'line': goodSentences, 'tags': goodTags, 'dates':goodDates });
+        console.log({ 'lines': goodSentences, 'tags': goodTags, 'dates':goodDates });
         return send();
     }
 }
@@ -65,10 +65,16 @@ module.exports = {
 
 function parseGoodLines(calback) {
   
-    for (let i = 0; i < goodLine.length; i++) {
+     for (let i = 0; i < goodLine.length; i++) {
         p = chrono.parse(arrayOfData[goodLine[i]]);
         parsedGoods.push(p);
-        goodDates.push([p[0].start.knownValues.month,p[0].start.knownValues.day]);
+        if (p[0].start.impliedValues.year) {
+            goodDates.push([p[0].start.knownValues.month, p[0].start.knownValues.day, p[0].start.impliedValues.year]);
+            console.log('six nine six nine six nine six nine');
+        } else {
+            console.log('696969696969');
+            goodDates.push([p[0].start.knownValues.month, p[0].start.knownValues.day, p[0].start.knownValues.year]);
+        }
         goodSentences.push(arrayOfData[goodLine[i]]);
     }
    
@@ -195,7 +201,7 @@ function printGoodLines() {
 
 }
 function send(){
-    return { 'line': goodSentences, 'tags': goodTags, 'dates':goodDates }; 
+    return { 'lines': goodSentences, 'tags': goodTags, 'dates':goodDates }; 
 }
 // console.log(p[0].start.knownValues.month);
 // console.log(p[0].start.knownValues.day);
