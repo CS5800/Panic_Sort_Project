@@ -29,7 +29,7 @@ app.set('view engine', 'ejs');
 passport.use(new GoogleStrategy({
   clientID: keys.google.clientID,
   clientSecret: keys.google.clientSecret,
-  callbackURL: "http://localhost:3000/auth/google/redirect",
+  callbackURL: "http://sillibus.xyz/auth/google/redirect",
   scope: ['openid', 'email', 'https://www.googleapis.com/auth/calendar']
 },
   function (accessToken, refreshToken, profile, done) {
@@ -156,7 +156,7 @@ app.post('/upload/google', function (req, res) {
       .then(function (pruned) {
 
         credentials = { 'access_token': req.cookies.sillibus };
-        var oauth2Client = new google.auth.OAuth2(keys.google.clientId, keys.google.clientSecret, "http://localhost:3000/auth/google/redirect");
+        var oauth2Client = new google.auth.OAuth2(keys.google.clientId, keys.google.clientSecret, "http://sillibus.xyz/auth/google/redirect");
         oauth2Client.credentials = credentials;
 
         res.clearCookie();
@@ -263,7 +263,7 @@ app.post('/upload/google', function (req, res) {
 
 });
 
-app.listen(3000);
+app.listen(8080);
 
 
 

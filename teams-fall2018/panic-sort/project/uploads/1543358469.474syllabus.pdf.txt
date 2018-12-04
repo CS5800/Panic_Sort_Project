@@ -1,0 +1,172 @@
+CS-6290-O01                                                                   https://t-square.gatech.edu/portal/tool/23e1c75a-147c-4059-affe-122ecb...
+
+
+
+
+         Course Description
+         This course covers modern computer architecture, including branch prediction, out-of-order instruction execution, cache
+         optimizations, multi-level caches, memory and storage, cache coherence and consistency, and multi- and many-core
+         processors.
+
+
+         Professor and TAs
+         Professor
+         Milos Prvulovic
+         Office hours: WebEx, Thursdays 1-2pm Atlanta (US Eastern) time
+
+         TAs
+         Nolan Capehart
+
+
+         Prerequisites
+         Undergraduate computer architecture course that covers basic computer organization; working knowledge of topics such as
+         instruction sets, pipelining, etc. For the course project, you will also need to be familiar with C/C++, Linux, and be comfortable
+         making modifications to large programs.
+
+         If you answer “no” to any of the following questions, it may be beneficial to refresh you knowledge of the prerequisite
+         material prior to taking CS 6290:
+
+                Have you taken a computer organization course before?
+                Are you familiar with at last one RISC instruction set and would you feel comfortable reading and writing small
+                assembler programs?
+                Are you familiar with basic computer architecture concepts, such as pipelines and caches?
+                Are you familiar with C/C++ and would you be comfortable writing and/or modifying 100+ lines of code in a
+                program that has over 100,000 lines of code?
+                Are you comfortable with, or even excited about, learning about how real processors work and using simulation
+                to see how changes in processor design affect its performance?
+                Have you successfully completed the HPCA0 "course" at Udacity?
+
+
+         Textbook
+         There are no required readings. When appropriate, additional class materials will be available as instructor notes that are
+         associated with the video lectures. Although we do not require and do not officially recommended a textbook, a useful
+         textbook for this course is “Computer Architecture: A Quantitative Approach” by John L. Hennessy and David A.
+         Patterson. A recent edition should work, but editions 1-4 put less emphasis on multi-core topics than our course does.
+
+
+         Grading
+
+         You will receive grades through T-Square. There are three types of grades:
+
+                Projects – You will be given four projects, each requiring more work than the previous one. Each project is to be
+                completed individually or in two-student teams, as specified in each project assignment.
+                Exams – You will be given two exams – a midterm and a final exam.
+                Udacity quizzes - You should complete all Udacity quizzes. Please note that you are not required to get the correct
+                answer on these quizzes on the first try, but you do need to complete them all before you take the final exam.
+
+         The projects and exams will count toward the final grade as follows:
+                        Total Weight         Breakdown
+         Projects       50%
+                                             Project 0: 5%
+                                             Project 1: 10%
+                                             Project 2: 15%
+                                             Project 3: 20%
+         Exams          50%
+
+
+
+
+1 of 3                                                                                                                             9/24/2018, 10:35 PM
+,CS-6290-O01                                                                    https://t-square.gatech.edu/portal/tool/23e1c75a-147c-4059-affe-122ecb...
+
+
+
+                                                 Midterm: 20%
+                                                 Final Exam: 30%
+
+         Note that completing Udacity quizzes does not contribute to your grade. You are expected to complete all quizzes within each
+         lesson correctly regardless of the grade you expect. The only exception to this are problem sets (quizzes named "Problem 1",
+         etc.) that appear at the end of most lessons - you are not required to complete all of those. For every non-problem-set quiz you do
+         not complete, you will lose 1% of all the points you earned on projects and exams. E.g. a student who neglects to complete 10
+         quizzes will lose 10% of the points earned on projects and exams.
+
+         Also note that the Final Exam does include questions about material that was covered in the Midterm exam.
+
+         The plan is to assign final (letter) grades based on your total score, with 90% and above earning an A, 80% and above earning a B,
+         etc. If this results in too few As, we may decide to lower the thresholds somewhat, or to use some sort of a curve - the final
+         decision whether and what to do in this regard is up to the instructor (Milos).
+
+         There will be no make-up assignments, so if you need a particular grade plan to perform accordingly on projects and exams.
+         Once a homework, project, or exam is over and graded, the only way the score on that assignment or exam will be changed is if a
+         legitimate mistake in grading has been made. Due to the large number of students in this class, assignment and exam re-grades can
+         only be requested during 14 days that follow the release of scores from that assignment/exam. When requesting a re-grade, keep
+         in mind that the entire submitted project/exam will be regraded, so a request for a regrade may result in a loss of points.
+
+         The grade in this class will be based solely on demonstrated performance. No grade will ever be changed because the student
+         needs a better grade to stay in the program, to keep a fellowship, to get a job, or any other reason. If you believe you need some
+         particular grade in this class, the only way to get that grade is to earn it on projects and exams.
+
+
+
+         Emergencies and Late Policy
+         No late assignments or exams will be accepted unless we advised to do so by the Dean of Students. Please contact
+         the office of the Dean of Students with health emergencies, family emergencies, personal disabilities, or other significant
+         events. The Dean’s office is equipped to verify these exceptions better than us, and provides a level of uniformity across
+         courses on how emergencies are handled.
+
+
+         Academic Integrity
+         All Georgia Tech students are expected to uphold the Georgia Tech Honor Code. You should read it (including the Graduate
+         Addendum)! We take cheating very seriously, that all Georgia Tech faculty (including the instructor for this course) are
+         required to report cases of academic dishonesty to the Dean of Students’ office at Georgia Tech, and that cheating,
+         unauthorized, collaboration, etc.
+
+
+         Class Schedule
+         This schedule lists important dates (exams, project release and due dates, etc.). The white-background items show the
+         recommended schedule for completing lessons. Of course you can complete lessons at a faster pace, but projects and
+         exams are timed assuming that you will take the lectures according to the provided schedule - so do not fall behind!
+
+         Week         Dates             Topics
+                      Aug 20-24         Introduction, Metrics and Evaluation; Pipelining Review
+         1
+                      Aug 22nd          Project 0 Released
+                      Aug 27-31         Branch Prediction and Predication
+         2
+                      Aug 29th          Project 1 Released
+                      Sep 3rd           Official Georgia Tech School Holiday - Labor Day
+         3            Sep 4-7           ILP and Instruction Scheduling
+                      Sep 9th           Project 0 Due at midnight AOE (GMT-12)
+         4            Sep 10-14         ROB
+                      Sep 17-21         Memory Ordering
+         5
+                      Sep 19th          Project 2 Released
+                      Sep 24-28         Compiler ILP and VLIW
+         6
+                      Sep 30th          Project 1 Due at midnight AOE (GMT-12)
+         7            Oct 1-5           Cache Review and Virtual Memory
+                      Oct 8-9           Official Georgia Tech Student Recess
+         8
+                      Oct 10-12         Advanced Caches
+
+
+
+2 of 3                                                                                                                            9/24/2018, 10:35 PM
+,CS-6290-O01                                                       https://t-square.gatech.edu/portal/tool/23e1c75a-147c-4059-affe-122ecb...
+
+
+              Oct 12-14      Midterm Exam (2-hour proctored exam)
+              Oct 15-19      Memory and Storage
+         9
+              Oct 17th       Project 3 Released
+              Oct 22-26      Fault Tolerance, Multi-Processing
+         10   Oct 27th       Last day to drop course with "W" grade
+              Oct 28th       Project 2 Due at midnight AOE (GMT-12)
+         11   Oct 29-Nov 2   Cache Coherence
+         12   Nov 5-9        Synchronization
+         13   Nov 12-16      Memory Consistency
+              Nov 19-20      Many-Core
+         14
+              Nov 21-23      Official Georgia Tech Student Recess and School Holiday - Thanksgiving Break
+              Nov 26-30      Catch-up and Review
+         15
+              Dec 2rd        Project 3 Due at midnight AOE (GMT-12)
+              Dec 3-4        Catch-Up and Review
+         16
+              Dec 6-9        Final Exam (3-hour proctored exam)
+
+
+
+
+3 of 3                                                                                                               9/24/2018, 10:35 PM
+
