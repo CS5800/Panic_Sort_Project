@@ -1,20 +1,102 @@
+<!-- this was taken from W3 schools - https://www.w3schools.com/w3css/w3css_templates.asp -->
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <title> Sillibus </title>
-</head>
-
+<title>Panic Sort</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+#<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+#<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+}
+.bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("/w3images/coffeehouse.jpg");
+    min-height: 75%;
+}
+.menu {
+    display: none;
+}
+</style>
 <body>
-        <form action="/auth" method="get">
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#project" class="w3-button w3-block w3-black">PROJECT</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#tutorial" class="w3-button w3-block w3-black">INSTRUCTIONS</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-black" style="font-size:90px">Sillibus</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-black" style="font-size:45px"><br><br>created by Panic Sort</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-black">Cal Poly Pomona</span>
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- Project Container -->
+<div class="w3-container" id="project">
+  <div class="w3-content" style="max-width:700px">
+ 
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE PROJECT</span></h5>
+  
+        <form action="http://www.sillibus.xyz/auth" method="get">
             <input type="submit" value="Sync with Google" 
                  name="Submit" id="frm1_submit" />
         </form>
-        <form action="/form/ical" method="get">
+        <form action="http://www.sillibus.xyz/form/ical" method="get">
             <input type="submit" value="Get Offline Calendar" 
                  name="Submit" id="frm2_submit" />
         </form>
-</body>
 
+  </div>
+</div>
+
+
+<!-- About Container -->
+<div class="w3-container" id="tutorial">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">INSTRUCTIONS</span></h5>
+    <p>This web application scans a syllabus given by the user and extracts important dates for exams, quizzes, homework, etc and will either sync it with their
+		google calendar or output a calendar file which can be imported into another calendar application. </p>
+	<p>To use this web app, the user must choose which type of output they want, "Sync with Google" or "Get Offline Calendar".
+		After, the user needs to upload their syllabus file and choose a scanning method. "Searchable PDF"
+		is a normal searching method and "Scanned PDF" uses Google OCR to scan the file for important information. After you submit, the important dates from
+		the syllabus should be added to you Google Calendar if you signed in. If you choose the offline option, the calendar file should be downloaded automatically.</p>
+  </div>
+</div>
+
+<!-- Team Container -->
+
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+
+
+
+
+</body>
 </html>
